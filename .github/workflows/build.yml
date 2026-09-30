@@ -27,15 +27,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install buildozer
 
-      # 关键：自动写入SDK路径到buildozer.spec
       - name: Patch buildozer.spec
         run: |
-          # 删除旧的android.sdk_path行，避免重复
           sed -i '/android.sdk_path/d' buildozer.spec
-          # 追加SDK路径，复用runner自带Android SDK
-          echo "android.sdk_path = /usr/local/lib/android/sdk" >> buildozer.spec
 
       - name: Build APK
+        env:
+          ANDROID_HOME: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
         run: buildozer android debug
 
       - name: Upload APK artifact
