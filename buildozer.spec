@@ -7,7 +7,7 @@ package.domain = org.flashcard
 source.dir = .
 source.include_exts = py,ttc
 
-requirements = python3,kivy,pyjnius==1.6.1
+requirements = python3,kivy
 
 android.permissions = WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 android.api = 33
