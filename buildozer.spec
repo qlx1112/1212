@@ -1,4 +1,5 @@
 [app]
+version = 0.1
 title = FlashCard
 package.name = flashcard
 package.domain = org.flashcard
