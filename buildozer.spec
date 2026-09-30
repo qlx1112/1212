@@ -2,6 +2,8 @@
 
 package.name = mykivyapp
 package.domain = org.mykivyapp
+title = MyKivyApp
+version = 0.1
 
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
