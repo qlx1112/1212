@@ -15,12 +15,11 @@ fullscreen = 0
 
 android.api = 33
 android.ndk = 25b
-# 不写 android.sdk_path，让buildozer自己下载SDK
 
 android.private_api = False
 android.ndk_path =
 android.ant_path =
-android.accept_sdk_license = True  # 关键！自动同意SDK许可，解决交互y/n问题
+android.accept_sdk_license = True
 
 android.enable_androidx = True
 android.permissions = INTERNET,ACCESS_NETWORK_STATE
