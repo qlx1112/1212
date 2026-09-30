@@ -20,7 +20,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt update
-          sudo apt install -y build-essential git libssl-dev libffi-dev python3-dev python3-pip python3-venv openjdk-11-jdk ant
+          sudo apt install -y build-essential git libssl-dev libffi-dev python3-dev python3-pip python3-venv openjdk-11-jdk ant zip unzip
 
       - name: Install buildozer & dependencies
         run: |
@@ -32,8 +32,6 @@ jobs:
           sed -i '/android.sdk_path/d' buildozer.spec
 
       - name: Build APK
-        env:
-          ANDROID_HOME: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
         run: buildozer android debug
 
       - name: Upload APK artifact
