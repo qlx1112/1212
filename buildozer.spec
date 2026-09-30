@@ -1,5 +1,4 @@
 [app]
-
 title = FlashCard
 package.name = flashcard
 package.domain = org.flashcard
