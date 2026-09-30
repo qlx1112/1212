@@ -1,15 +1,27 @@
 [app]
-version = 0.1
-title = FlashCard
-package.name = flashcard
-package.domain = org.flashcard
+
+package.name = mykivyapp
+package.domain = org.mykivyapp
 
 source.dir = .
-source.include_exts = py,ttc
+source.include_exts = py,png,jpg,kv,atlas
 
 requirements = python3,kivy
 
-android.permissions = WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+orientation = portrait
+fullscreen = 0
+
 android.api = 33
 android.ndk = 25b
-android.accept_sdk_license = True
+android.sdk_path = /usr/local/lib/android/sdk
+
+android.private_api = False
+android.ndk_path =
+android.ant_path =
+
+android.enable_androidx = True
+android.permissions = INTERNET,ACCESS_NETWORK_STATE
+
+[buildozer]
+log_level = 2
+warn_on_root = 1
