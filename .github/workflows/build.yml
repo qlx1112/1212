@@ -1,33 +1,27 @@
-name: Build Kivy APK
-on:
-  workflow_dispatch:
+[app]
 
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
+package.name = mykivyapp
+package.domain = org.mykivyapp
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
 
-      - name: Install system dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y git zip unzip openjdk-17-jdk pkg-config libffi-dev libltdl3-dev autoconf libtool
+requirements = python3,kivy
 
-      - name: Install buildozer
-        run: pip install buildozer cython==0.29.36 --break-system-packages
+orientation = portrait
+fullscreen = 0
 
-      - name: Build APK
-        env:
-          ANDROID_HOME: ${{ github.workspace }}/.buildozer/android/platform/android-sdk
-        run: buildozer android debug
+android.api = 33
+android.ndk = 25b
+android.sdk_path = /usr/local/lib/android/sdk
 
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: flashcard-apk
-          path: bin/*.apk
+android.private_api = False
+android.ndk_path =
+android.ant_path =
+
+android.enable_androidx = True
+android.permissions = INTERNET,ACCESS_NETWORK_STATE
+
+[buildozer]
+log_level = 2
+warn_on_root = 1
